@@ -44,7 +44,7 @@ pipeline {
         }
         stage ("Provisioning complete") {
             steps {
-                sh 'echo Terraform backend AWS resources provisioned successfully' 
+                sh 'echo "Terraform backend AWS resources provisioned successfully"' 
            }
         }
     }
