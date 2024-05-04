@@ -42,10 +42,13 @@ pipeline {
                 sh 'terraform apply --auto-approve' 
            }
         }
-        stage ("Provisioning complete") {
-            steps {
-                sh 'echo "Terraform backend AWS resources provisioned successfully"' 
-           }
+    }
+    post { 
+        success { 
+           echo 'Terraform backend AWS resources provisioned successfully.'
+        }
+        failure {
+           echo 'Terraform backend AWS resources provisioning unsuccessful.'
         }
     }
 }
